@@ -85,6 +85,27 @@ class InViewNotifierList extends InViewNotifier {
   }
 }
 
+class InViewNotifierScrollable extends InViewNotifier {
+  InViewNotifierScrollable({
+    Key? key,
+    List<String> initialInViewIds = const [],
+    double endNotificationOffset = 0.0,
+    VoidCallback? onListEndReached,
+    Duration throttleDuration = const Duration(milliseconds: 200),
+    required IsInViewPortCondition isInViewPortCondition,
+    required Widget child,
+  })  : assert(endNotificationOffset >= 0.0),
+        super(
+          key: key,
+          initialInViewIds: initialInViewIds,
+          endNotificationOffset: endNotificationOffset,
+          onListEndReached: onListEndReached,
+          throttleDuration: throttleDuration,
+          isInViewPortCondition: isInViewPortCondition,
+          child: child,
+        );
+}
+
 class InViewNotifierListCustom extends InViewNotifier {
   InViewNotifierListCustom({
     Key? key,
